@@ -1,27 +1,11 @@
-/** @jsx React.DOM */
-
-var React = require('react'),
+var ko = require('knockout'),
     Events = require('./enums/events'),
     Pages = require('./enums/pages'),
-    WelcomePage = require('./pages/welcome'),
-    AnotherPage = require('./pages/anotherPage'),
     PubSub = require('pubsub-js'),
     Application;
 
-Application = React.createClass({
-    render: function() {
-        return (
-            <div id="pages">
-                <WelcomePage />
-                <AnotherPage />
-            </div>
-        );
-    }
-});
+ko.applyBindings();
 
-React.render(
-    <Application />,
-    document.getElementById('app')
-);
+console.log(indexHtml);
 
 PubSub.publish(Events.PAGE.CHANGED, Pages.WELCOME);
